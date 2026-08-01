@@ -8,6 +8,13 @@ const PORT = 3000
 
 app.use(express.json())
 
+// app.use(cors({
+//   origin: [
+//     'http://localhost:5173',                 
+//     'https://student-frontend.vercel.app'   
+//   ]
+// }));
+
 app.get("/", (req, res) => {
     res.send("Hello CodeCamp")
 })
