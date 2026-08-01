@@ -1,0 +1,8 @@
+### ทดสอบดูข้อมูลสินค้าทั้งหมด
+GET http://localhost:3000/product
+
+### ทดสอบดูข้อมูลสินค้าตาม ID (ตัวอย่าง id=1)
+GET http://localhost:3000/product/1
+
+### ทดสอบดูข้อมูลหมวดหมู่ทั้งหมด
+GET http://localhost:3000/categories
