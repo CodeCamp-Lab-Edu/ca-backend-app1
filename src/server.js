@@ -12,6 +12,13 @@ app.use(cors({
 }))
 app.use(express.json())
 
+// app.use(cors({
+//   origin: [
+//     'http://localhost:5173',                 
+//     'https://student-frontend.vercel.app'   
+//   ]
+// }));
+
 app.get("/", (req, res) => {
     res.send("Hello CodeCamp")
 })
@@ -33,6 +40,12 @@ app.get("/categories", (req, res) => {
     res.json(categories)
 })
 
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`)
-})
+// app.listen(PORT, () => {
+//     console.log(`Server is running on http://localhost:${PORT}`)
+// })
+
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(3000, () => console.log('Server ready on port 3000'));
+}
+
+export default app
