@@ -54,3 +54,43 @@ Content-Type: application/json
 
 ### ทดสอบลบสินค้า id=3
 DELETE http://localhost:3000/product/1
+
+
+### ทดสอบค้นหาสินค้าทั้งหมด (ไม่ใส่เงื่อนไข)
+GET http://localhost:3000/product/search
+
+
+### ทดสอบค้นหาสินค้าด้วยคำค้นหา q
+GET http://localhost:3000/product/search?q=mac
+
+
+### ทดสอบค้นหาสินค้าตามหมวดหมู่
+GET http://localhost:3000/product/search?category=Electronics
+
+
+### ทดสอบค้นหาสินค้าตามช่วงราคา
+GET http://localhost:3000/product/search?minPrice=10000&maxPrice=50000
+
+
+### ทดสอบค้นหาสินค้าแบบรวมหลายเงื่อนไข
+GET http://localhost:3000/product/search?q=pro&category=Accessories&minPrice=5000&maxPrice=20000&sortBy=price&sortOrder=desc&page=1&limit=5
+
+
+### ทดสอบค้นหาสินค้าเรียงตามราคาน้อยไปมาก
+GET http://localhost:3000/product/search?sortBy=price&sortOrder=asc
+
+
+### ทดสอบค้นหาสินค้าเรียงตามราคามากไปน้อย
+GET http://localhost:3000/product/search?sortBy=price&sortOrder=desc
+
+
+### ทดสอบค้นหาสินค้าแบบแบ่งหน้า (page 2)
+GET http://localhost:3000/product/search?limit=2&page=2
+
+
+### ทดสอบค้นหาไม่เจอ
+GET http://localhost:3000/product/search?q=zzzznotfound
+
+
+### ทดสอบค้นหาด้วย page ไม่ถูกต้อง
+GET http://localhost:3000/product/search?page=-1
