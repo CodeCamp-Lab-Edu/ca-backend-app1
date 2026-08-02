@@ -27,7 +27,7 @@ model User {
 model Product {
   id          Int      @id @default(autoincrement())
   name        String
-  price       Int
+  price       Float
   category    String
   description String?
   image       String?

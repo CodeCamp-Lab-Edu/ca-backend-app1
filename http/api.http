@@ -1,61 +1,3 @@
-### ทดสอบดูข้อมูลสินค้าทั้งหมด
-GET http://localhost:3000/product
-
-
-### ทดสอบดูข้อมูลสินค้าตาม ID (ตัวอย่าง id=1)
-GET http://localhost:3000/product/1
-
-
-### เพิ่มสินค้าตัวที่ 1
-POST http://localhost:3000/product
-Content-Type: application/json
-
-{
-  "name": "MacBook Pro M4",
-  "price": 89000,
-  "category": "Electronics",
-  "image": "https://via.placeholder.com/150"
-}
-
-
-### เพิ่มสินค้าตัวที่ 2
-POST http://localhost:3000/product
-Content-Type: application/json
-
-{
-  "name": "AirPods Pro 2",
-  "price": 12900,
-  "category": "Accessories",
-  "image": "https://via.placeholder.com/150"
-}
-
-
-### เพิ่มสินค้าตัวที่ 3
-POST http://localhost:3000/product
-Content-Type: application/json
-
-{
-  "name": "iPad Air M3",
-  "price": 35900,
-  "category": "Electronics",
-  "image": "https://via.placeholder.com/150"
-}
-
-
-### ทดสอบแก้ไขสินค้า id=1
-PUT http://localhost:3000/product/1
-Content-Type: application/json
-
-{
-  "name": "MacBook Pro M4 Max",
-  "price": 99000
-}
-
-
-### ทดสอบลบสินค้า id=3
-DELETE http://localhost:3000/product/3
-
-
 ### ทดสอบดูข้อมูลหมวดหมู่ทั้งหมด
 GET http://localhost:3000/categories
 
@@ -93,3 +35,44 @@ GET http://localhost:3000/user
 
 ### ดูสมาชิกตาม ID
 GET http://localhost:3000/user/1
+
+
+### ทดสอบเข้าสู่ระบบ (สำเร็จ)
+POST http://localhost:3000/user/login
+Content-Type: application/json
+
+{
+  "email": "somchai@example.com",
+  "password": "123456"
+}
+
+
+### ทดสอบเข้าสู่ระบบ (รหัสผิด)
+POST http://localhost:3000/user/login
+Content-Type: application/json
+
+{
+  "email": "somchai@example.com",
+  "password": "wrongpassword"
+}
+
+
+### ทดสอบเปลี่ยนรหัสผ่าน
+PUT http://localhost:3000/user/password
+Content-Type: application/json
+
+{
+  "email": "somchai@example.com",
+  "oldPassword": "newpass123",
+  "newPassword": "newpass1234"
+}
+
+
+### ทดสอบ login ด้วยรหัสใหม่
+POST http://localhost:3000/user/login
+Content-Type: application/json
+
+{
+  "email": "somchai@example.com",
+  "password": "newpass1234"
+}

@@ -1,0 +1,56 @@
+### ทดสอบดูข้อมูลสินค้าทั้งหมด
+GET http://localhost:3000/product
+
+
+### ทดสอบดูข้อมูลสินค้าตาม ID (ตัวอย่าง id=1)
+GET http://localhost:3000/product/1
+
+
+### เพิ่มสินค้าตัวที่ 1
+POST http://localhost:3000/product
+Content-Type: application/json
+
+{
+  "name": "MacBook Pro M4",
+  "price": 89000,
+  "category": "Electronics",
+  "image": "https://via.placeholder.com/150"
+}
+
+
+### เพิ่มสินค้าตัวที่ 2
+POST http://localhost:3000/product
+Content-Type: application/json
+
+{
+  "name": "AirPods Pro 2",
+  "price": 12900,
+  "category": "Accessories",
+  "image": "https://via.placeholder.com/150"
+}
+
+
+### เพิ่มสินค้าตัวที่ 3
+POST http://localhost:3000/product
+Content-Type: application/json
+
+{
+  "name": "iPad Air M3",
+  "price": 35900,
+  "category": "Electronics",
+  "image": "https://via.placeholder.com/150"
+}
+
+
+### ทดสอบแก้ไขสินค้า id=1
+PUT http://localhost:3000/product/2
+Content-Type: application/json
+
+{
+  "name": "MacBook Pro M4 Max",
+  "price": 99000
+}
+
+
+### ทดสอบลบสินค้า id=3
+DELETE http://localhost:3000/product/1
